@@ -1,0 +1,72 @@
+{% extends "../base.html" %}
+{% block title %}
+    All
+{% endblock title %}
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <form class="d-flex mb-4" role="search">
+                            <input class="form-control me-2"
+                                   name="search"
+                                   type="search"
+                                   placeholder="Search Here..."
+                                   required
+                                   aria-label="Search">
+                            <button class="btn btn-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="{% url 'employee:view_all' %}" class="btn btn-dark">View All</a>
+                    </div>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Department</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">Joined Date</th>
+                            <th scope="col">Operation</th>
+                        </tr>
+                    </thead>
+                    {% for employee in employees %}
+                        <tbody>
+                            <tr>
+                                <th scope="row">{{ forloop.counter }}</th>
+                                <td>{{ employee.name }}</td>
+                                <td>{{ employee.email }}</td>
+                                <td>{{ employee.phone }}</td>
+                                <td>{{ employee.department.name }}</td>
+                                <td>{{ employee.role.name }}</td>
+                                <td>{{ employee.joined_date }}</td>
+                                <td>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <a href="{% url 'employee:view_single_employee' employee.id %}"
+                                           class="btn btn-primary">Go</a>
+                                        <a href="{% url 'employee:update' employee.id %}" class="btn btn-info">
+                                            <i class="bi bi-pencil-fill"></i>
+                                        </a>
+                                        <a href="{% url 'employee:delete' employee.id %}" class="btn btn-danger">
+                                            <i class="bi bi-x-lg"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{{ request.META.HTTP_REFERER }}"
+                   class="text-decoration-none d-block mt-4 mb-4 btn btn-dark">Go Back</a>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+{% endblock main %}

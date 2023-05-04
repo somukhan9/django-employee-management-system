@@ -1,0 +1,34 @@
+{% extends "../base.html" %}
+{% block title %}
+    Details
+{% endblock title %}
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 text-center">
+                <h1>
+                    <strong>Name</strong> : {{ employee.name }}
+                </h1>
+                <p>
+                    <strong>Email</strong> : {{ employee.email }}
+                </p>
+                <p>
+                    <strong>Phone Number</strong> : {{ employee.phone }}
+                </p>
+                <p>
+                    <strong>Department</strong> : {{ employee.department.name }}
+                </p>
+                <p>
+                    <strong>Role</strong> : {{ employee.role.name }}
+                </p>
+                <p>
+                    <strong>Joined Date</strong> : {{ employee.joined_date }}
+                </p>
+                <a href="{{ request.META.HTTP_REFERER }}"
+                   class="text-decoration-none d-block mt-4 btn btn-dark">Go Back</a>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+{% endblock main %}

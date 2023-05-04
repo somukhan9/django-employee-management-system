@@ -1,0 +1,30 @@
+{% extends "../base.html" %}
+{% block title %}
+    Login
+{% endblock title %}
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <h1 class="text-center">Sing Up</h1>
+                <form action="{% url 'authapp:login' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-gourp">
+                        <label for="username_or_email" class="text-capitalize">{{ form.username_or_email.label }}</label>
+                        {{ form.username_or_email }}
+                    </div>
+                    <div class="form-gourp">
+                        <label for="password" class="text-capitalize">{{ form.password.label }}</label>
+                        {{ form.password }}
+                    </div>
+                    <div class="d-grid gap-2 mt-2">
+                        <button type="submit" class="btn btn-dark">Login</button>
+                    </div>
+                </form>
+                <a href="{% url 'authapp:signup' %}" class="d-block my-2">Don't have any account?</a>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+{% endblock main %}

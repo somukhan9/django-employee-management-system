@@ -1,0 +1,36 @@
+{% extends "../base.html" %}
+{% block title %}
+    Home
+{% endblock title %}
+{% block main %}
+    <div class="container">
+        <h1 class="text-center">Welcome to Employee Management Application</h1>
+        <hr>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 mb-2">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a class="btn btn-primary"
+                       href="{% url 'employee:view_all' %}"
+                       role="button">View All Employees</a>
+                    <a class="btn btn-primary" href="{% url 'employee:add' %}" role="button">Add an Employee</a>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                {% for employee in employees %}
+                    <h2>
+                        <strong>{{ forloop.counter }}.</strong><a href="{% url 'employee:view_single_employee' employee.id %}"
+   class="text-decoration-none">&#160;{{ employee.name }}</a>
+                    </h2>
+                {% endfor %}
+                <a href="{% url 'employee:view_all' %}"
+                   class="d-block mt-4 text-decoration-none">Click Here to See All</a>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+{% endblock main %}

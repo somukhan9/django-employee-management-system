@@ -1,0 +1,52 @@
+{% extends "../base.html" %}
+{% block title %}
+    Sing Up
+{% endblock title %}
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <h1 class="text-center">Sing Up</h1>
+                <form action="{% url 'authapp:signup' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-gourp">
+                        <label for="first_name" class="text-capitalize">{{ form.first_name.label }}</label>
+                        {{ form.first_name }}
+                        {% for error in form.first_name.errors %}<small class="text-danger">{{ error|escape }}</small>{% endfor %}
+                    </div>
+                    <div class="form-gourp">
+                        <label for="last_name" class="text-capitalize">{{ form.last_name.label }}</label>
+                        {{ form.last_name }}
+                        {% for error in form.last_name.errors %}<small class="text-danger">{{ error|escape }}</small>{% endfor %}
+                    </div>
+                    <div class="form-gourp">
+                        <label for="username" class="text-capitalize">{{ form.username.label }}</label>
+                        {{ form.username }}
+                        {% for error in form.username.errors %}<small class="text-danger">{{ error|escape }}</small>{% endfor %}
+                    </div>
+                    <div class="form-gourp">
+                        <label for="email" class="text-capitalize">{{ form.email.label }}</label>
+                        {{ form.email }}
+                        {% for error in form.email.errors %}<small class="text-danger">{{ error|escape }}</small>{% endfor %}
+                    </div>
+                    <div class="form-gourp">
+                        <label for="password" class="text-capitalize">{{ form.password.label }}</label>
+                        {{ form.password }}
+                        {% for error in form.password.errors %}<small class="text-danger">{{ error|escape }}</small>{% endfor %}
+                    </div>
+                    <div class="form-gourp">
+                        <label for="confirm_password" class="text-capitalize">{{ form.confirm_password.label }}</label>
+                        {{ form.confirm_password }}
+                        {% for error in form.confirm_password.errors %}<small class="text-danger">{{ error|escape }}</small>{% endfor %}
+                    </div>
+                    <div class="d-grid gap-2 mt-2">
+                        <button type="submit" class="btn btn-dark">Sign Up</button>
+                    </div>
+                </form>
+                <a href="{% url 'authapp:login' %}" class="d-block my-2">Already have an account?</a>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+{% endblock main %}

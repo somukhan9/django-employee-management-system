@@ -1,0 +1,88 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local development settings
+.env
+
+# Django static and media files
+staticfiles/
+media/
+
+# Database
+*.sqlite3
+*.db
+*.sqlite
+db.sqlite3
+db.sqlite
+*.bak
+*.sql
+
+# Logs
+*.log
+logs/
+*.swp
+
+# Coverage
+.coverage
+htmlcov/
+
+# IDE
+.idea/
+.vscode/
+*.pydevproject
+*.project
+*.settings/
+*.tmproj
+
+# Compiled Python files
+*.pyc
+*.pyo
+
+# Django migrations
+*/migrations/
+**/migrations/
+*.bak
+
+# Django project settings
+*.settings.py
+
+# Docker Compose files
+docker-compose.yml
+docker-compose.yaml
+
+# Heroku files
+**/.heroku/
+**/heroku.yml
+
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Test database
+test_db/
+test-db.sqlite3
+
+# Ignore pipenv virtual environment
+/.venv
+/.venv/
+Pipfile.lock
+
+# Ignore Python package artifacts
+*.egg-info/
+dist/
+build/
+*.egg
+*.tar.gz
+*.whl
+
+# Ignore data files
+*.csv
+*.json
+*.pickle
+*.pkl
+*.xlsx
+*.xls
