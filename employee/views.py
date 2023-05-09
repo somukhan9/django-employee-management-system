@@ -14,6 +14,7 @@ def index(request):
     return render(request, 'employee/index.html', context)
 
 
+@login_required(login_url='authapp:login')
 def view_all(request):
     context = dict()
     search = ''
